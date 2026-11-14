@@ -1,0 +1,31 @@
+:root{color-scheme:light;background:#f7f5e9;font-family:Georgia,serif}
+*{box-sizing:border-box}
+html{min-width:320px}
+body{margin:0;background:#e8e4d7}
+.page{width:min(100%,1440px);margin-inline:auto;background:#f7f5e9;box-shadow:0 0 40px rgb(0 0 0/12%)}
+.stage{position:relative;line-height:0}
+.design{display:block;width:100%;height:auto;pointer-events:none;user-select:none}
+.spot{position:absolute;padding:0;border:0;background:transparent;cursor:zoom-in;border-radius:2px;transition:box-shadow .2s,background-color .2s}
+.spot:hover{background:rgb(255 255 255/10%);box-shadow:0 0 0 3px rgb(255 255 255/70%),0 8px 24px rgb(0 0 0/25%)}
+.spot:focus-visible{outline:3px solid #8d2924;outline-offset:3px}
+.teddy-spot{cursor:pointer}
+.teddy-spot:hover{box-shadow:none;background:transparent}
+.float-heart{position:fixed;z-index:30;pointer-events:none;color:#b3262f;font-size:var(--s,22px);line-height:1;animation:rise var(--d,3s) ease-out forwards}
+@keyframes rise{to{transform:translate(var(--x,0),-70vh) rotate(var(--r,20deg));opacity:0}}
+.lightbox{position:fixed;width:min(94vw,1040px);max-width:none;max-height:92dvh;padding:58px 72px 28px;border:1px solid rgb(255 255 255/28%);background:#171512;color:#fffdf6;box-shadow:0 24px 80px rgb(0 0 0/46%)}
+.lightbox::backdrop{background:rgb(23 21 18/82%)}
+.lightbox[open]{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:18px}
+.lb-close,.lb-arrow{display:grid;width:44px;height:44px;padding:10px;place-items:center;border:1px solid rgb(255 255 255/35%);border-radius:50%;background:rgb(255 255 255/8%);color:#fffdf6;cursor:pointer}
+.lb-close:hover,.lb-arrow:hover{background:rgb(255 255 255/18%)}
+.lightbox svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.7}
+.lb-close{position:absolute;top:15px;right:15px}
+.lb-figure{display:grid;min-width:0;max-height:calc(92dvh - 100px);margin:0;justify-items:center;gap:14px}
+.lb-image{display:block;max-width:100%;max-height:calc(92dvh - 170px);object-fit:contain}
+.lb-caption{color:#ede7d7;font:.95rem/1.4 Georgia,serif;text-align:center}
+@media (max-width:600px){
+  .lightbox{padding:60px 8px 18px;width:100%;max-height:100dvh;border:0}
+  .lightbox[open]{grid-template-columns:34px minmax(0,1fr) 34px;gap:6px}
+  .lb-arrow{width:34px;height:34px;padding:7px}
+  .lb-image{max-height:calc(100dvh - 165px)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
